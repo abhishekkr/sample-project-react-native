@@ -35,6 +35,14 @@ class Clock extends Component {
     this.state = {date: new Date()};
   }
 
+  componentDidMount(props){
+    setInterval(() => {
+        this.setState(previousState => {
+          return { date: new Date() };
+        });
+      }, 1000);
+  }
+
   render(){
     return (
       <View style={styles.date}>
