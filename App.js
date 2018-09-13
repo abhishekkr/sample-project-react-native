@@ -29,11 +29,27 @@ class Home extends Component {
   }
 }
 
+class Clock extends Component {
+  constructor(props){
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render(){
+    return (
+      <View style={styles.date}>
+        <Text>{this.state.date.toLocaleTimeString()}</Text>
+      </View>
+    );
+  }
+}
+
 class Logo extends Component {
   render() {
     return (
       <View>
         <Image source={this.props.src} style={{width: 193, height: 110, opacity: 0.1}}/>
+        <Clock />
       </View>
     );
   }
@@ -71,5 +87,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  date: {
+    textAlign: 'center',
+    color: '#2f3f4f',
+    marginBottom: 3,
   },
 });
